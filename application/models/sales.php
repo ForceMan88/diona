@@ -121,7 +121,7 @@ class sales extends CI_Model
         return false;
     }
 
-    public function getTopSales()
+    public function getTopSales($top_sales_group = 1)
     {
         $query = $this
             ->db
@@ -129,6 +129,7 @@ class sales extends CI_Model
             ->from('top_sales')
             ->distinct()
             ->limit(3)
+            ->where(array('top_sales_group_id' => $top_sales_group))
             ->order_by('date', 'desc')
             ->get();
 

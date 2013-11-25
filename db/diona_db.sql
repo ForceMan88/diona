@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.8
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Хост: localhost
--- Время создания: Май 13 2013 г., 23:55
--- Версия сервера: 5.0.91-community
--- Версия PHP: 5.2.17
+-- Хост: 127.0.0.1
+-- Время создания: Ноя 25 2013 г., 20:36
+-- Версия сервера: 5.5.27
+-- Версия PHP: 5.4.7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,13 +27,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `captcha` (
-  `captcha_id` bigint(13) unsigned NOT NULL auto_increment,
+  `captcha_id` bigint(13) unsigned NOT NULL AUTO_INCREMENT,
   `captcha_time` int(10) unsigned NOT NULL,
-  `ip_address` varchar(16) NOT NULL default '0',
+  `ip_address` varchar(16) NOT NULL DEFAULT '0',
   `word` varchar(20) NOT NULL,
-  PRIMARY KEY  (`captcha_id`),
+  PRIMARY KEY (`captcha_id`),
   KEY `word` (`word`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3952 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3953 ;
 
 --
 -- Дамп данных таблицы `captcha`
@@ -80,7 +80,8 @@ INSERT INTO `captcha` (`captcha_id`, `captcha_time`, `ip_address`, `word`) VALUE
 (3915, 1367767921, '222.169.60.2', 'ldZh'),
 (3914, 1367749396, '87.255.94.119', 'wLUW'),
 (3913, 1367664434, '94.178.146.252', 'stNt'),
-(3912, 1367664335, '94.178.146.252', 'QTSC');
+(3912, 1367664335, '94.178.146.252', 'QTSC'),
+(3952, 1385403808, '127.0.0.1', 'BUSs');
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,7 @@ INSERT INTO `captcha` (`captcha_id`, `captcha_time`, `ip_address`, `word`) VALUE
 --
 
 CREATE TABLE IF NOT EXISTS `cms_page` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `menu_title` varchar(50) NOT NULL,
   `keywords` varchar(255) NOT NULL,
@@ -97,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `cms_page` (
   `content` text NOT NULL,
   `sort_order` tinyint(4) NOT NULL,
   `url` varchar(100) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
@@ -118,10 +119,10 @@ INSERT INTO `cms_page` (`id`, `title`, `menu_title`, `keywords`, `description`, 
 --
 
 CREATE TABLE IF NOT EXISTS `images` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `image` varchar(255) NOT NULL,
   `entity_id` int(11) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
@@ -146,7 +147,7 @@ INSERT INTO `images` (`id`, `image`, `entity_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `main` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `entity_id` int(11) NOT NULL,
   `business` varchar(7) NOT NULL,
   `count_room` tinyint(3) unsigned NOT NULL,
@@ -164,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `main` (
   `living_area` int(11) NOT NULL,
   `kitchen_area` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1609 ;
 
 --
@@ -1794,9 +1795,9 @@ INSERT INTO `main` (`id`, `entity_id`, `business`, `count_room`, `real_estate`, 
 --
 
 CREATE TABLE IF NOT EXISTS `role` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
@@ -1814,11 +1815,40 @@ INSERT INTO `role` (`id`, `name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `top_sales` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `entity_id` int(11) NOT NULL,
-  `date` timestamp NOT NULL default CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `top_sales_group_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
+
+--
+-- Дамп данных таблицы `top_sales`
+--
+
+INSERT INTO `top_sales` (`id`, `entity_id`, `date`, `top_sales_group_id`) VALUES
+(52, 9186, '2013-11-25 19:35:13', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `top_sales_group`
+--
+
+CREATE TABLE IF NOT EXISTS `top_sales_group` (
+  `group_id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`group_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Дамп данных таблицы `top_sales_group`
+--
+
+INSERT INTO `top_sales_group` (`group_id`, `group_name`) VALUES
+(1, 'Top sales 1'),
+(2, 'Top sales 2'),
+(3, 'Top sales 3');
 
 -- --------------------------------------------------------
 
@@ -1827,11 +1857,11 @@ CREATE TABLE IF NOT EXISTS `top_sales` (
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `user_id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(60) NOT NULL,
   `password` varchar(60) NOT NULL,
   `role_id` int(11) NOT NULL,
-  PRIMARY KEY  (`user_id`),
+  PRIMARY KEY (`user_id`),
   UNIQUE KEY `role_id` (`role_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
@@ -1840,7 +1870,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`user_id`, `login`, `password`, `role_id`) VALUES
-(1, 'admin', '445bd2297c159ae0dad741f49cffbd813732df1e', 1);
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -53,6 +53,8 @@ class SalesController extends MY_AdminController
         }
 
         if (!empty($id) and $prop = $this->sales->getSalesById($id)) {
+            $prop->top_sales = $this->sales->getTopSalesById($id);
+
             $this->adminlayout->addTemplate('sales/edit',
                 array('prop' => $prop, 'images' => $this->sales->getImagesById($id)));
         } else {
@@ -102,14 +104,16 @@ class SalesController extends MY_AdminController
     public function setTopSales()
     {
         $top_sales = $this->input->post('top_sales');
+
         $this->load->model('admin/sales', 'sales');
+
         if ($entity_id = $this->input->post('entity_id')) {
-            if (!empty($top_sales)) {
-                $this->sales->set_top_sales($entity_id);
+            $this->sales->remove_top_sales($entity_id);
+            if ($top_sales && count($top_sales)) {
+                $this->sales->set_top_sales($entity_id, $top_sales);
                 $this->session->set_userdata('success', 'Top sales set');
             } else {
                 if ($this->sales->top_sales_exist($entity_id)) {
-                    $this->sales->remove_top_sales($entity_id);
                     $this->session->set_userdata('error', 'Top sales unset');
                 }
             }

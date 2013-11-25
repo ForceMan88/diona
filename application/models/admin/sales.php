@@ -15,7 +15,7 @@ class Sales extends CI_Model
         $query = $this
             ->db
             ->select('entity_id, price, street')
-            ->limit($limit ,$num)
+            ->limit($limit, $num)
             ->get('main');
 
         if ($query->num_rows > 0) {
@@ -37,13 +37,12 @@ class Sales extends CI_Model
     {
         $query = $this
             ->db
-            ->select('main.entity_id, street, price, date')
+            ->select('main.entity_id, street, price')
             ->from('main')
-            ->join('top_sales', 'top_sales.entity_id = main.entity_id','left')
             ->limit(1)
             ->where('main.entity_id', $id)
             ->get();
-        
+
         if ($query->num_rows > 0) {
             // person has account with us
             return $query->row();
@@ -51,6 +50,34 @@ class Sales extends CI_Model
 
         return false;
     }
+
+    /**
+     * Function return sales content by id.
+     *
+     * @param $id
+     *
+     * @return bool
+     */
+    public function getTopSalesById($id)
+    {
+        $query = $this
+            ->db
+            ->select('top_sales_group_id')
+            ->from('top_sales')
+            ->where('entity_id', $id)
+            ->get();
+
+        if ($query->num_rows > 0) {
+            // person has account with us
+            foreach($query->result_array() as $value) {
+                $result[] = $value['top_sales_group_id'];
+            }
+            return $result;
+        }
+
+        return false;
+    }
+
 
     /**
      * Get image for sales by ID.
@@ -85,7 +112,7 @@ class Sales extends CI_Model
      */
     public function setImage($entity_id, $image)
     {
-        $this->db->insert('images', array('entity_id'=>$entity_id,'image'=>$image));
+        $this->db->insert('images', array('entity_id' => $entity_id, 'image' => $image));
     }
 
     /**
@@ -93,11 +120,13 @@ class Sales extends CI_Model
      *
      * @param $entity_id
      */
-    public function set_top_sales($entity_id)
+    public function set_top_sales($entity_id, $top_sales)
     {
-        $this->db->insert('top_sales', array('entity_id'=>$entity_id));
-    }
+        foreach ($top_sales as $key => $value) {
+            $this->db->insert('top_sales', array('entity_id' => $entity_id, 'top_sales_group_id' => $key));
+        }
 
+    }
 
     /**
      * Remove top sales.
@@ -106,7 +135,7 @@ class Sales extends CI_Model
      */
     public function remove_top_sales($entity_id)
     {
-        $this->db->delete('top_sales', array('entity_id'=>$entity_id));
+        $this->db->delete('top_sales', array('entity_id' => $entity_id));
     }
 
     /**

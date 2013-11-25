@@ -13,9 +13,15 @@
     </div>
     <div class="grid_4">
         <?php echo form_open_multipart('admin_panel/sales/settopsales'); ?>
-        <?php echo form_checkbox('top_sales','on',isset($data['prop']->date) ? 'checked':'') ?>
+        <?php $top_sales = $data['prop']->top_sales && count($data['prop']->top_sales)  ?>
         <?php echo form_hidden('entity_id', $data['prop']->entity_id) ?>
-        <?php echo form_submit(array('name' => 'submit'), 'Set Top Sales'); ?>
+        <?php echo form_label( form_checkbox('top_sales[1]','on', $top_sales && in_array(1, $data['prop']->top_sales) ? 'checked':'') . ' Set top sales 1' );  ?>
+        </br>
+        <?php echo form_label( form_checkbox('top_sales[2]','on', $top_sales && in_array(2, $data['prop']->top_sales)  ? 'checked':'') . ' Set top sales 2' );  ?>
+        </br>
+        <?php echo form_label( form_checkbox('top_sales[3]','on', $top_sales && in_array(3, $data['prop']->top_sales)  ? 'checked':'') . ' Set top sales 3' );  ?>
+        </br>
+        <?php echo form_submit(array('name' => 'submit',), 'Set Top Sales'); ?>
         <?php echo form_close(); ?>
     </div>
     <div class="grid_7">
