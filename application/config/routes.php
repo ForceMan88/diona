@@ -62,6 +62,7 @@ $route['admin_panel'] = "admin/AuthController";
 $route['admin_panel/logout'] = "admin/AuthController/logout";
 $route['admin_panel/dashboard'] = "admin/DashboardController";
 $route['admin_panel/sales/(:any)'] = "admin/SalesController/$1";
+$route['admin_panel/config/(:any)'] = "admin/ConfigController/$1";
 $route['admin_panel/import/(:any)'] = "admin/ImportCsvController/$1";
 $route['admin_panel/cms/(:any)'] = "admin/CmsController/$1";
 $route['404_override'] = '';

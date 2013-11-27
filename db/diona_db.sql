@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 25 2013 г., 20:36
+-- Время создания: Ноя 27 2013 г., 21:04
 -- Версия сервера: 5.5.27
 -- Версия PHP: 5.4.7
 
@@ -111,6 +111,27 @@ INSERT INTO `cms_page` (`id`, `title`, `menu_title`, `keywords`, `description`, 
 (5, 'Вакансии - Недвижимость в Житомире, купить квартиру, продать квартиру - «ДIОНА»', 'Вакансии', 'вакансии, в юридической компании «ДIОНА»', 'Вакансии в юридической компании «ДIОНА»', '<div class="page">\n			<div class="contentleft"></div>\n			<div class="content">\n			<div class="vacancy">\n				<h1 class="zaglavst">Вакансии</h1>\n					<p class="textbalck">Наша компания хорошо развивается не только за счет наработанной репутации. У нас работают люди с многолетним опытом и профессиональными навыками в данной сфере, но мы всегда открыты для новых сотрудников.</p>\n					<div id="realtor"><p class="pseudoli">Риэлтором по продаже недвижимости</p>\n						<span class="textbalck">22.09.2009</span>\n					</div>\n					<div class="requirements">\n						<strong>Основные требования:</strong>\n						<span class="textsmallbalck">- Опыт работы в сфере недвижимости</span>\n						<span class="textsmallbalck">- Коммуникабельность, целенаправленность, энергичность</span>\n					</div>\n					\n			</div>\n			<div class="bufer"><!----></div>\n			</div>\n		</div>', 80, 'vacancy'),
 (6, 'Ипотека - Недвижимость в Житомире, купить квартиру, продать квартиру - «ДIОНА»', 'Ипотека', 'кредит, кредиты, автокредиты, ипотека, потребительские кредиты, кредитование недвижимости', 'Давно запутались в этих кредитах? ставках? Мы поможем Вам сориентироваться, о кредитах доступно!', '		<div class="page">\n			<div class="contentleft"></div>\n			<div class="content">\n			<div class="credit">\n				<h1 class="zaglavst">Ипотека</h1>\n					<p class="textbalck">Вам нужна квартира сейчас, а средств недостаточно и ждать тоже надоело? В таком случае можно воспользоваться ипотекой: то есть долгосрочный кредит. Делаете покупку сейчас, а выплачиваете потом небольшими сумами. Удобно, быстро и не надо ждать далекого будущего.</p>\n					<strong>Ипотека это - ...</strong>\n					<p class="pseudoli">покупка-продажа квартир, домов, земельных участков, дач;</p>\n					<p class="textbalck">После подписания договора и расчета продавец получает копию купчей, заверенную нотариусом. На основании данной копии его выписывают из проданной квартиры. Покупатель же получает оригинал договора, нотариально заверенную копию и свидетельство о регистрации собственности в специальном Реестре (стоимость регистрации от 50 до 100 грн.). Далее, договор подлежит обязательной регистрации в БТИ.</p>\n					<p class="pseudoli">покупка-продажа недостроенных домов;</p>\n					<p class="textbalck">После подписания договора и расчета продавец получает копию купчей, заверенную нотариусом. На основании данной копии его выписывают из проданной квартиры.</p>\n					<p class="pseudoli">покупка-продажа коммерческих объектов недвижимости - административных зданий, торговых комплексов, офисов, производственных цехов, складов;</p>\n					<p class="textbalck">Покупатель же получает оригинал договора, нотариально заверенную копию и свидетельство о регистрации собственности в специальном Реестре (стоимость регистрации от 50 до 100 грн.). Далее, договор подлежит обязательной регистрации в БТИ.</p>\n					<p class="pseudoli">профессиональные бесплатные консультации;</p>\n					<p class="textbalck">Покупатель же получает оригинал договора, нотариально заверенную копию и свидетельство о регистрации собственности в специальном Реестре (стоимость регистрации от 50 до 100 грн.). Далее, договор подлежит обязательной регистрации в БТИ.</p>\n			</div>\n			<div class="bufer"><!----></div>\n			</div>\n		</div>', 70, 'credit'),
 (7, 'Контакты - Недвижимость в Житомире, купить квартиру, продать квартиру - «ДIОНА»', 'Контакты', 'контактная информация, контакты, диона, недвижимость', 'Все контакты юридической компании «ДIОНА».', '<div class="page">\r\n			<div class="contentleft"></div>\r\n			<div class="content">\r\n			<div class="contacts">\r\n				<h1 class="zaglavst">Контакты</h1>\r\n					<p class="textbalck">Наш офис легко найти. Мы находимся прямо в центре на одной из главных улиц города Житомир. Вход с фасадной части дома.</p>\r\n					<div id="adres" class="adresWrapper">\r\n						<div class="textbalck adresType"><strong>Адрес</strong></div>\r\n						<div class="textbalck adres">\r\n							<span>10003, Украина, г.Житомир</span>\r\n							<span>ул. Победы, дом 19/2, офис 2, 4</span>\r\n						</div>\r\n					</div>\r\n					<div id="telephone" class="adresWrapper">\r\n						<div class="textbalck adresType"><strong>Телефоны</strong></div>\r\n						<div class="textbalck adres">\r\n							<span>+3 (0412) 44-50-67</span>\r\n							<span>+3 (0412) 44-54-44</span>\r\n							<span>+3 (0412) 42-63-48</span>\r\n							<span>+3 (067) 410-04-36</span>\r\n						</div>\r\n					</div>\r\n					<div id="email" class="adresWrapper">\r\n						<div class="textbalck adresType"><strong>Е-почта</strong></div>\r\n						<div class="textbalck adres">\r\n							<a class="menu1" href="mailto:info@diona.zt.ua">info@diona.zt.ua</a>\r\n							<a class="menu1" href="mailto:d.gordeychuk@diona.zt.ua">d.gordeychuk@diona.zt.ua</a>\r\n						</div>\r\n					</div>\r\n					<div class="map">\r\n						<div class="textzagtitle">Карта проезда:</div>\r\n						<div class="textsmallbalck"><a href="{SKIN_URL}map_big.jpg" target="_blank"><img src="{SKIN_URL}map_small.gif" width="500" height="150" alt="карта проезда" class="bordercolor"></a></div>\r\n					</div>\r\n			</div>\r\n			<div class="bufer"><!----></div>\r\n			</div>\r\n		</div>', 60, 'contacts');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `config`
+--
+
+CREATE TABLE IF NOT EXISTS `config` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+
+--
+-- Дамп данных таблицы `config`
+--
+
+INSERT INTO `config` (`id`, `name`, `value`) VALUES
+(1, 'currency_rate', '8.1');
 
 -- --------------------------------------------------------
 

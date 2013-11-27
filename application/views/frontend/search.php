@@ -746,6 +746,7 @@
                         <div class="price_info">
                               <div class="price_info_a">Цена:</div>
                               <div class="price_info_b"><strong><?php echo $item->price ?>&nbspу.е.</strong></div>
+                            <div class="price_info_b"><strong><?php echo format_price($item->price)?>&nbspuah</strong></div>
                         <div>
                         <div class="itemRightBorder"></div>
 
